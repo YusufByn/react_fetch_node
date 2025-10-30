@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './AddNumbers.css'
 
 function AddNumbers() {
     // on declare une variable d'état pour le premier nombre    
@@ -10,7 +9,8 @@ function AddNumbers() {
     const [result, setResult] = useState(0)
 
     // on crée une fonction pour ajouter les deux nombres
-    const handleAdd = async () => {
+    const handleAdd = async (e) => {
+        e.preventDefault()
         // on declare une variable pour envoyer les données au backend
         const table = {firstNumber: number1, secondNumber: number2}
         // on fetch les données en utilisant l'url de l'api
@@ -32,10 +32,12 @@ function AddNumbers() {
     return (
         <div className="add-numbers-container">
             <h1>Addition de deux nombres</h1>
-            <input type="number" value={number1} onChange={(e) => setNumber1(e.target.value)} placeholder="Premier nombre" />
-            <input type="number" value={number2} onChange={(e) => setNumber2(e.target.value)} placeholder="Deuxième nombre" />
-            <button onClick={handleAdd}>Add</button>
-            <p>{result}</p>
+            <form onSubmit={handleAdd}>
+                <input type="number" value={number1} onChange={(e) => setNumber1(e.target.value)} placeholder="Premier nombre" />
+                <input type="number" value={number2} onChange={(e) => setNumber2(e.target.value)} placeholder="Deuxième nombre" />
+                <button type="submit">Ajouter</button>
+            </form>
+            <p>Le résultat de l'addition est : {result}</p>
         </div>
     )
 }

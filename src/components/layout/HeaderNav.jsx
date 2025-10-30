@@ -20,6 +20,9 @@ function HeaderNav() {
                 <li>
                     <NavLink to="/addNumbers">Add Numbers</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/checkPassword">Vérifier le mot de passe</NavLink>
+                </li>
             </ul>
         </nav>
     )

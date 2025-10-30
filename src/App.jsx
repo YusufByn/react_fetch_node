@@ -6,6 +6,7 @@ import Layout from './components/layout/Layout'
 import PairOrNot from './components/pages/PairOrNot'
 import CountLength from './components/pages/CountLength'
 import AddNumbers from './components/pages/AddNumbers'
+import CheckPassword from './components/pages/checkPassword'
 function App() {
 
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/pairOrNot" element={<PairOrNot />} />
         <Route path="/countLength" element={<CountLength />} />
         <Route path="/addNumbers" element={<AddNumbers />} />
+        <Route path="/checkPassword" element={<CheckPassword />} />
       </Routes>
     </Layout>
   )

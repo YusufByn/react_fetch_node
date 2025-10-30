@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import './CountLength.css'
 
 function CountLength() {
     const [text, setText] = useState('')
     const [result, setResult] = useState(0)
 
-    const handleCount = async () => {
+    const handleCount = async (e) => {
+        e.preventDefault()
         // dans notre endpoint express, on declare une const Text qui est egal a req.body.str
         // donc dans la table j'appelle str et je lui donne la valeur de text
         // si je mettais text: text ca ne marcherait pas
@@ -30,9 +30,15 @@ function CountLength() {
 
     return (
         <div className="count-length-container">
+            {/* on crée un titre pour le composant */}
             <h1>Compter la longueur d'un texte</h1>
-            <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Entrez un texte" />
-            <button onClick={handleCount}>Compter</button>
+            {/* on crée un formulaire pour compter la longueur d'un texte */}
+            <form onSubmit={handleCount}>
+                {/* on crée un input pour entrer le texte */}
+                <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Entrez un texte" />
+                <button type="submit">Compter</button>
+            </form>
+            {/* on affiche le résultat */}
             <p>{result}</p>
         </div>
     )

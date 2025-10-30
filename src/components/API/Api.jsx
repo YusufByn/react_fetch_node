@@ -13,6 +13,7 @@ function Api() {
             // transforme la réponse en json
             const data = await response.json()
             //on set les données de la variable d'état avec les données de la réponse
+            console.log('data:', data);
             // quand on fait un console log de data on a la key data qui contient le tableau avec mes data 
             // donc on setData avec data.data
             setData(data.data)

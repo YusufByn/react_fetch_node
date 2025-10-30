@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './PairOrNot.css'
 
 function PairOrNot() {
     // on declare une variable d'état pour le nombre
@@ -7,7 +6,9 @@ function PairOrNot() {
     // on declare une variable d'état pour le résultat
     const [result, setResult] = useState('')
     // on crée une fonction pour vérifier si le nombre est pair ou impair
-    const handleCheck = async () => {
+    const handleCheck = async (e) => {
+        // on utilise la fonction preventDefault pour éviter que le formulaire soit envoyé
+        e.preventDefault()
 
         // on declare une variable pour envoyer les données au backend
         const table = {number: number}
@@ -30,10 +31,17 @@ function PairOrNot() {
     }
     return (
         <div className="pair-or-not-container">
+            {/* on crée un titre pour le composant */}
             <h1>Pair ou Impair</h1>
-            <input type="number" placeholder="Entrez un nombre" 
-            value={number} onChange={(e) => setNumber(e.target.value)} />
-            <button onClick={handleCheck}>Vérifier</button>
+            {/* on crée un formulaire pour vérifier si le nombre est pair ou impair */}
+            <form onSubmit={handleCheck}>  
+                {/* on crée un input pour entrer le nombre */}
+                <input type="number" placeholder="Entrez un nombre" 
+                value={number} onChange={(e) => setNumber(e.target.value)} />
+                {/* on crée un bouton pour vérifier si le nombre est pair ou impair */}
+                <button type="submit">Vérifier</button>
+            </form>
+            {/* on affiche le résultat */}
             <p>{result}</p>
         </div>
     )
