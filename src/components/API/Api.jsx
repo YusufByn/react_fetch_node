@@ -26,6 +26,7 @@ function Api() {
     
     return (
       <>   
+        <h1>Tableau de données</h1>
         <div className="api-container">
             {data.map((data) => (
                 <div key={data.id} className="api-box">

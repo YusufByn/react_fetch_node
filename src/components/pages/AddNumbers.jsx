@@ -31,6 +31,7 @@ function AddNumbers() {
     }
     return (
         <div className="add-numbers-container">
+            <h1>Addition de deux nombres</h1>
             <input type="number" value={number1} onChange={(e) => setNumber1(e.target.value)} placeholder="Premier nombre" />
             <input type="number" value={number2} onChange={(e) => setNumber2(e.target.value)} placeholder="Deuxième nombre" />
             <button onClick={handleAdd}>Add</button>

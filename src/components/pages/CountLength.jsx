@@ -30,6 +30,7 @@ function CountLength() {
 
     return (
         <div className="count-length-container">
+            <h1>Compter la longueur d'un texte</h1>
             <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="Entrez un texte" />
             <button onClick={handleCount}>Compter</button>
             <p>{result}</p>
